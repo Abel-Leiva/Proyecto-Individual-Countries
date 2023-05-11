@@ -1,0 +1,30 @@
+.card {
+  width: 200px;
+  height: auto;
+  background-color: skyblue;
+  border: 2px solid black;
+}
+
+.card:nth-child(5) {
+  grid-column-start: 1;
+}
+
+.card:nth-child(6) {
+  grid-column-start: 2;
+}
+
+.card:nth-child(7) {
+  grid-column-start: 3;
+}
+
+.card:nth-child(8) {
+  grid-column-start: 4;
+}
+
+.card:nth-child(9) {
+  grid-column-start: 2;
+}
+
+.card:nth-child(10) {
+  grid-column-start: 3;
+}
