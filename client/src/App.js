@@ -9,9 +9,9 @@ function App() {
   return (
     <div className="App">
       {location !== "/" && <NavBar />}
-      {location !== "/" && location !== "/create" && location !== "/detail" && (
+      {/* {location !== "/" && location !== "/create" && location !== "/detail" && (
         <Filters />
-      )}
+      )} */}
       <Route exact path="/" render={() => <Landing />} />
       <Route exact path="/home" render={() => <Home />} />
       <Route exact path="/detail/:id" render={() => <Detail />} />

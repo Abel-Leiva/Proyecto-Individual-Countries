@@ -1,0 +1,247 @@
+.container {
+  display: flex;
+  justify-content: center;
+
+  font-family: "Poppins", sans-serif;
+  background-image: url("./atracciones-turísticas\ .jpg");
+  background-color: rgba(0, 0, 0, 0.1);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 360px;
+  align-self: flex-start;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #000000d0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.errors {
+  color: red;
+
+  margin-top: 3px;
+  height: 15px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 13px;
+  width: 100%;
+}
+
+.campo input,
+.campo select {
+  background-color: #f0f0f0;
+  font-size: 14px;
+  color: #333;
+  border-radius: 5px;
+  padding: 8px;
+  border: none;
+  outline: none;
+  width: 95%;
+}
+
+.campo input::placeholder,
+.campo select::placeholder {
+  color: #888;
+}
+
+.campo button {
+  margin-top: 7px;
+  background-color: #3377be;
+  font-size: 14px;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  height: 37px;
+  width: 120px;
+  transition: background-color 0.3s ease;
+}
+
+.campo button:hover {
+  background-color: #235d90;
+}
+
+.campo div label {
+  font-size: 17px;
+  font-weight: bold;
+  color: #2f68e2;
+  margin-bottom: 5px;
+}
+
+.buttonSub {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4px;
+  background-color: #ecca33;
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 100%;
+  height: 47px;
+  border: none;
+  text-decoration: none;
+  color: #222;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttonSub:hover {
+  background-color: #f3cf03;
+}
+
+.containerNamesCountries {
+  width: 95%;
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 130px;
+}
+
+.spanPaises {
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 2px;
+  padding: 3px;
+  margin: 3px;
+  font-size: 12px;
+  height: 17px;
+}
+.buttonDelette {
+  border: none;
+  color: red;
+  font-size: 15px;
+  margin-right: 3px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/* .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Poppins;
+  height: 100vh; 
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  width: 360px;
+  height: 650px;
+
+  padding: 16px;
+  border-radius: 10px;
+  margin: auto;
+  background: rgb(243, 236, 236);
+}
+.errors {
+  color: red;
+}
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+.campo input {
+  background-color: rgba(24, 21, 24, 0.213);
+  font-size: 18px;
+  color: white;
+  border-radius: 5px;
+  height: 23px;
+  border: solid 2px white;
+  outline: none;
+}
+.campo span {
+  margin-top: 4px;
+  font-weight: 600;
+  height: 25px;
+  font-family: "Times New Roman", Times, serif;
+}
+.campo div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.campo button {
+  margin-top: 7px;
+  background-color: rgb(51, 118, 190);
+  font-size: 15px;
+  color: white;
+  border: none;
+
+  cursor: pointer;
+  height: 30px;
+  width: 80px;
+}
+.campo div label {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(59, 111, 223);
+  margin-top: 10px;
+}
+.campo div select {
+  height: 30px;
+  border-radius: 3px;
+  background-color: #0e0e0dfc;
+  border: 2px solid white;
+  font-size: 18px;
+  color: white;
+  outline: none;
+}
+
+.buttonSub {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  background-color: rgb(22, 255, 1);
+  font-size: 25px;
+  font-weight: 900;
+  border-radius: 3px;
+  width: 282px;
+  height: 64px;
+  text-decoration: none;
+  color: rgb(46, 46, 46);
+  cursor: pointer;
+}
+.buttonDelette {
+  border: none;
+  color: red;
+  font-size: 22px;
+  margin-right: 3px;
+  cursor: pointer;
+  background-color: transparent;
+}
+.containerNamesCountries {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 130px;
+}
+.spanPaises {
+  padding: 2px 7px;
+  border-radius: 8px;
+  margin: 4px;
+  height: 30px;
+}
+.dificultad option {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+} */

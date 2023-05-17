@@ -23,6 +23,7 @@ const {
   loadCountriesToDatabase,
 } = require("./src/controllers/loadCountriesToDatabase.js");
 loadCountriesToDatabase();
+console.log(loadCountriesToDatabase());
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
   server.listen(3002, () => {

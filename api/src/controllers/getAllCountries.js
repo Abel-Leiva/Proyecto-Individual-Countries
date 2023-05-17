@@ -45,7 +45,7 @@ const getAllCountries = async (req, res) => {
     console.log(countries?.length);
     res.status(200).json(countries);
   } catch (error) {
-    console.log({ getallCountrie: error });
+    console.log({ getallCountrie: error.message });
   }
 };
 

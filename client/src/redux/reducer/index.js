@@ -1,4 +1,4 @@
-import { GET_ALL_COUNTRIES } from "../actions";
+import { GET_ALL_COUNTRIES, GET_ID_COUNTRY } from "../actions";
 
 let initialState = {
   allCountries: [],
@@ -15,7 +15,8 @@ function rootReducer(state = initialState, action) {
         allCountries: action.payload,
         copyAllcountries: action.payload,
       };
-
+    case GET_ID_COUNTRY:
+      return { ...state, detail: action.payload };
     default:
       return state;
   }
