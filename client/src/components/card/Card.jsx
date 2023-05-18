@@ -4,17 +4,18 @@ const Card = (props) => {
   return (
     <Link className={style.Link} to={`/detail/${props.id}`}>
       <div className={style.card}>
-        <div>
-          <h3>Nombre: {props.name}</h3>
-          <h4>Continente: {props.continent}</h4>
+        <div className={style.divInfo}>
+          <span>
+            <p>Nombre </p> <br />
+            <span>{props.name}</span>
+          </span>
+          <span>
+            <p>Continente</p> <br />
+            <span>{props.continent}</span>
+          </span>
         </div>
-        <div>
-          <img
-            src={props.imageFlag}
-            height="200px"
-            width="200px"
-            alt={`bandera de ${props.imageFlags}`}
-          />
+        <div className={style.divImg}>
+          <img src={props.imageFlag} alt={`bandera de ${props.imageFlags}`} />
         </div>
       </div>
     </Link>

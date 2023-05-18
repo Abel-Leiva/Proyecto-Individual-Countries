@@ -12,7 +12,7 @@ const loadCountriesToDatabase = async () => {
         where: { id: country.cca3 },
         defaults: {
           name: country.name.common,
-          imageFlag: country.flags[0],
+          imageFlag: country.flags[1],
           continent: country.continents?.join(", "),
           capital: country.capital ? country.capital.join(", ") : "no tiene",
           subRegion: country.subregion,

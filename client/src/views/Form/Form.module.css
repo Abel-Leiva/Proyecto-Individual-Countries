@@ -7,6 +7,7 @@
   background-color: rgba(0, 0, 0, 0.1);
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh;
 }
 
 .form {
@@ -18,7 +19,7 @@
   align-self: flex-start;
   padding: 15px;
   border-radius: 10px;
-  background-color: #000000d0;
+  background-color: #000000dc;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -53,10 +54,12 @@
 .campo select::placeholder {
   color: #888;
 }
-
+.campo select option {
+  font-size: 14px;
+}
 .campo button {
   margin-top: 7px;
-  background-color: #3377be;
+  background-color: #235d90;
   font-size: 14px;
   color: white;
   border: none;
@@ -68,13 +71,13 @@
 }
 
 .campo button:hover {
-  background-color: #235d90;
+  background-color: #3377be;
 }
 
 .campo div label {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: bold;
-  color: #2f68e2;
+  color: #3377be;
   margin-bottom: 5px;
 }
 
@@ -97,7 +100,7 @@
 }
 
 .buttonSub:hover {
-  background-color: #f3cf03;
+  background-color: #ffff01;
 }
 
 .containerNamesCountries {

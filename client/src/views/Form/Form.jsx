@@ -148,7 +148,7 @@ const Form = () => {
               onChange={changeHandler}
             >
               <option value="">Seleccione una opción</option>
-              <option value="facil">Fácil</option>
+              <option value="facil">Fácil </option>
               <option value="moderado">Moderado</option>
               <option value="dificil">Difícil</option>
               <option value="muy dificil">Muy difícil</option>

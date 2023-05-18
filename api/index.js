@@ -25,7 +25,7 @@ const {
 loadCountriesToDatabase();
 console.log(loadCountriesToDatabase());
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   server.listen(3002, () => {
     console.log("%s listening at 3002"); // eslint-disable-line no-console
   });
