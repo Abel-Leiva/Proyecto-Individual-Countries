@@ -1,3 +1,7 @@
 .container {
+  display: flex;
+  flex-direction: row;
   background-color: rgba(227, 233, 233, 0.479);
+
+  gap: 40px;
 }

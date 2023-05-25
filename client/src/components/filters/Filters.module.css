@@ -1,9 +1,13 @@
 .containerFilters {
   background-color: slategray;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
   border: 2px solid black;
+  height: 500px;
+  width: 200px;
+  position: relative;
+  top: 250px;
 }
 .containerFilters > * {
-  margin: 30px;
 }

@@ -21,7 +21,7 @@ const getAllCountries = async (req, res) => {
         where: {
           name: {
             //revisar arreglar lo del post en minusculas
-            [Op.iLike]: `%${name}%`,
+            [Op.substring]: `${name}%`,
           },
         },
         include: {
@@ -35,11 +35,11 @@ const getAllCountries = async (req, res) => {
     else {
       countries = await Country.findAll({
         attributes: ["name", "imageFlag", "continent", "id"],
-        // include: {
-        //   model: Activity,
-        //   attributes: ["name"],
-        //   through: { attributes: [] }, // para evitar incluir la tabla pivot
-        // },
+        include: {
+          model: Activity,
+          attributes: ["name"],
+          through: { attributes: [] }, // para evitar incluir la tabla pivot
+        },
       });
     }
     console.log(countries?.length);

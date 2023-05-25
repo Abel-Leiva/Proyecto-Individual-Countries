@@ -6,12 +6,12 @@ const NavBar = () => {
   return (
     <div className={style.containerNav}>
       <div className={style.divlogo}>
-        <img src={logo} height="40px" alt="" />
+        <img src={logo} height="45px" alt="" />
         <span>PI Countries</span>
       </div>
       <div className={style.divNav}>
         <Link className={style.link} to="/home">
-          Home
+          Inicio
         </Link>
         <SearchBar />
         <Link className={style.link} to="/create">

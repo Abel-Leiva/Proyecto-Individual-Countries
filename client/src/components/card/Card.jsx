@@ -6,8 +6,7 @@ const Card = (props) => {
       <div className={style.card}>
         <div className={style.divInfo}>
           <span>
-            <p>Nombre </p> <br />
-            <span>{props.name}</span>
+            <h3>{props.name}</h3>
           </span>
           <span>
             <p>Continente</p> <br />

@@ -1,12 +1,10 @@
 .containerNav {
-  padding: 25px 25px 5px 10px;
   max-width: 100%;
-  height: 37px;
+  height: 55px;
   display: flex;
   flex-direction: row;
 
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.705);
-  background-color: #d6d6cc;
+  background-color: #000000dc;
 }
 .divNav {
   display: flex;
@@ -20,11 +18,11 @@
   display: flex;
   align-items: center;
   text-align: center;
-  color: black;
+  color: white;
   font-family: "Poppins", sans-serif;
   font-size: 23px;
   padding: 0px 15px;
-  padding-bottom: 1px;
+  padding-top: 12px;
 
   margin-right: 20px;
   text-decoration: none;
@@ -52,20 +50,21 @@
   display: flex;
   flex-direction: row;
   padding: 0;
-
+  background-color: rgb(250, 249, 248);
   width: 150px;
-  margin-bottom: 2px;
+
+  height: 100%;
 }
 .divlogo img {
-  margin-bottom: 2px;
+  padding-top: 5px;
 }
 .divlogo span {
-  border-left: 3px solid black;
   display: flex;
   align-items: end;
   padding-left: 10px;
-  padding-top: 5px;
-  font-size: 15px;
+  padding-bottom: 7px;
+  padding-top: 6px;
+  font-size: 17px;
 }
 /* .containerNav {
  

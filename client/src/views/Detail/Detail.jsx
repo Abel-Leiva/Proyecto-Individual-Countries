@@ -45,7 +45,7 @@ const Detail = () => {
                   </div>
                 );
               })
-            : "sin actividad"}
+            : ""}
         </div>
         <div className={style.imageContainer}>
           <img

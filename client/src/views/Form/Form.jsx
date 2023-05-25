@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import validate from "./validate";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import style from "./Form.module.css";
 import axios from "axios";
+import { getAllCountries } from "../../redux/actions";
 const Form = () => {
   //creo un array con los nombres de todos los paises
+  const dispatch = useDispatch();
   const countries = useSelector((state) => state.copyAllcountries);
   const nameCountries = countries.map((c) => c.name);
   const [nameFilters, setNameFilters] = useState([]);
@@ -88,6 +90,9 @@ const Form = () => {
   }, [nameFilters]);
   ///  //
   useEffect(() => {
+    if (countries.length === 0) {
+      dispatch(getAllCountries());
+    }
     setError(validate(form));
   }, [form]);
   /////////
