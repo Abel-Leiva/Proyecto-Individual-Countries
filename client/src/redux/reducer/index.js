@@ -1,11 +1,11 @@
 import {
-  BY_NAME,
+  FILTERS,
   FILTER_ACTIVITIES,
   GET_ACTIVITIES,
   GET_ALL_COUNTRIES,
   GET_ID_COUNTRY,
+  SEARCH_NAME,
   FILTERED_CONTINENT,
-  FILTERED,
 } from "../actions";
 
 let initialState = {
@@ -16,6 +16,7 @@ let initialState = {
   filterActivity: [],
   activities: [],
   detail: {},
+  name: "",
 };
 
 function rootReducer(state = initialState, action) {
@@ -28,11 +29,51 @@ function rootReducer(state = initialState, action) {
       };
     case GET_ID_COUNTRY:
       return { ...state, detail: action.payload };
-    case BY_NAME:
-      return { ...state, countries: action.payload };
+    //
+    case SEARCH_NAME:
+      return {
+        ...state,
+
+        name: action.payload,
+      };
+    //
     case GET_ACTIVITIES:
       return { ...state, activities: action.payload };
-    ///
+
+    //
+    case FILTERS:
+      let { paisesFiltrados, activity, alfab, population, name, continent } =
+        action.payload;
+      if (continent && continent !== "") {
+        paisesFiltrados = paisesFiltrados.filter(
+          (pais) => pais.continent == continent
+        );
+      }
+      console.log(
+        "en el reduce buscnaod ac",
+        paisesFiltrados.filter((e) => e.Activities)
+      );
+
+      if (activity && activity !== "") {
+        let filtrados = [];
+        paisesFiltrados.forEach((country) => {
+          country.Activities.forEach((e) => {
+            if (e.name == activity) {
+              filtrados.push(country);
+            }
+          });
+        });
+        paisesFiltrados = filtrados;
+      }
+      if (population && population !== "") {
+        console.log("populationnn", population);
+        paisesFiltrados =
+          population == "asc"
+            ? paisesFiltrados.sort((a, b) => a.population - b.population)
+            : paisesFiltrados.sort((a, b) => b.population - a.population);
+      }
+      return { ...state, countries: paisesFiltrados };
+
     case FILTER_ACTIVITIES:
       state.filterActivity = [];
 

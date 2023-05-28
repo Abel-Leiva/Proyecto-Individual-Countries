@@ -6,6 +6,7 @@ import { Pagination } from "../pagination/pagination";
 
 const CardsContainer = () => {
   const countries = useSelector((state) => state.countries);
+  console.log("estos son los paises", countries);
   const [pagina, setPagina] = useState(1);
   const [porPagina, setPorPagina] = useState(10);
   const maximo = countries.length / porPagina;

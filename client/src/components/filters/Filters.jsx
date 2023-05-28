@@ -1,37 +1,62 @@
-import { useDispatch, useSelector } from "react-redux";
-import style from "./Filters.module.css";
-
 import {
   filterActivities,
   filtered,
   filteredContinent,
   getAllCountries,
 } from "../../redux/actions";
-import { useState } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+import style from "./Filters.module.css";
+import { filterCountries } from "../../redux/actions";
+import { useState, useEffect } from "react";
 const Filters = () => {
   const dispatch = useDispatch();
   const activities = useSelector((state) => state.activities);
-  const [activityFilters, setActivityFilters] = useState([]);
+  const name = useSelector((state) => state.name);
+  //declaro un estado local, que luego enviare al estado global con un dispatch dentro de un useEfect
+
+  const [filtros, setFiltros] = useState({
+    continent: "",
+    activity: "",
+    alfab: "",
+    population: "",
+    name: name,
+  });
+  ///
+  useEffect(() => {
+    setFiltros((prevFiltros) => ({
+      ...prevFiltros,
+      name: name,
+    }));
+  }, [name]);
+  //descomento esto y se me rompe no se por que
+  useEffect(() => {
+    dispatch(filterCountries(filtros));
+  }, [filtros]);
+
+  //mapeo y traigo los nombres de la actividad para renderizarlos como options
+
   const nameActivities = activities.map((activity) => activity.name);
   const cActivities = activities.map((activity) => activity.Countries);
-  console.log("los nombres", cActivities);
-
+  /////
+  ///////
   const handleActivityChange = (e) => {
     const activity = e.target.value;
-    // if (activity == "all") {
-    dispatch(filterActivities(activity));
-    dispatch(filtered());
-    // } else {
-    //   const paises = activities.filter((e) => e.name === activity);
-    //   console.log(paises[0].Countries);
-    //   dispatch(filterActivities(paises[0].Countries));
-    // }
+    setFiltros({ ...filtros, activity: activity });
   };
   const handleContinentChange = (e) => {
     const continent = e.target.value;
-    console.log(continent);
-    dispatch(filteredContinent(continent));
+    setFiltros({ ...filtros, continent: continent });
   };
+  const handlePopul = (e) => {
+    const orden = e.target.value;
+    setFiltros({ ...filtros, alfab: "", population: orden });
+  };
+  const handleAlfab = (e) => {
+    const orden = e.target.value;
+    setFiltros({ ...filtros, population: "", alfab: orden });
+  };
+
   return (
     <div className={style.containerFilters}>
       <select name="" onChange={handleContinentChange} id="">
@@ -55,15 +80,15 @@ const Filters = () => {
           </option>
         ))}
       </select>
-      <select name="" id="">
+      <select name="" id="" value={filtros.alfab} onChange={handleAlfab}>
         <option value="">Orden alfabetico</option>
-        <option value="">a-z</option>
-        <option value="">z-a</option>
+        <option value="asc">a-z</option>
+        <option value="desc">z-a</option>
       </select>
-      <select name="" id="">
+      <select name="" id="" value={filtros.population} onChange={handlePopul}>
         <option value="">Por Poblacion</option>
-        <option value="">asc</option>
-        <option value="">desc</option>
+        <option value="asc">asc</option>
+        <option value="desc">desc</option>
       </select>
     </div>
   );

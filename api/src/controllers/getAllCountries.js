@@ -34,7 +34,7 @@ const getAllCountries = async (req, res) => {
     // Si no se proporcionan parámetros de filtro, obtener todos los países
     else {
       countries = await Country.findAll({
-        attributes: ["name", "imageFlag", "continent", "id"],
+        attributes: ["name", "imageFlag", "continent", "id", "population"],
         include: {
           model: Activity,
           attributes: ["name"],
