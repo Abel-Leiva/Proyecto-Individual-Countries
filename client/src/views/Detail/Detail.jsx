@@ -1,7 +1,10 @@
 import style from "./Detail.module.css";
 import { getIdCountry } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import {
+  useParams,
+  useHistory,
+} from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect } from "react";
 
 const Detail = () => {
@@ -20,42 +23,53 @@ const Detail = () => {
       season: e.season,
     };
   });
-  console.log("existe", activities);
+  const history = useHistory();
+
+  const handleGoBack = () => {
+    history.goBack();
+  };
   return (
     <div className={style.container}>
       <div className={style.detailContainer}>
-        <div>
-          <p>Nombre: {country.name}</p>
-          <p>{country.id}</p>
+        <div className={style.text}>
+          <h2> {country.name}</h2>
+          <div className={style.imageContainer}>
+            <img
+              className={style.imagen}
+              src={country.imageFlag}
+              height=""
+              alt={`bandera de ${country.imageFlag}`}
+            />
+          </div>
+          {/* <p>{country.id}</p> */}
           <p>Continente: {country.continent}</p>
-          <p>capital: {country.capital}</p>
+          <p>Capital: {country.capital}</p>
           <p>Subregion: {country.subRegion}</p>
           <p>Area: {country.area}</p>
           <p>Población: {country.population}</p>
-          {activities?.length > 0
-            ? activities.map((act) => {
-                return (
-                  <div>
-                    <h4>Actividades: {act.name}</h4>
-                    <ul>
-                      <li>Dificultad: {act.difficulty}</li>
-                      <li>Duración: {act.duration}</li>
-                      <li>Temporada: {act.season}</li>
-                    </ul>
-                  </div>
-                );
-              })
-            : ""}
         </div>
-        <div className={style.imageContainer}>
-          <img
-            className={style.imagen}
-            src={country.imageFlag}
-            height=""
-            alt={`bandera de ${country.imageFlag}`}
-          />
+
+        <div className={style.actContainer}>
+          <h2>Actividades </h2>
+          {activities?.length > 0 ? (
+            activities.map((act, id) => {
+              return (
+                <div key={id}>
+                  <h3>{act.name}</h3>
+                  <ul>
+                    <li>Dificultad: {act.difficulty}</li>
+                    <li>Duración: {act.duration} hora/s</li>
+                    <li>Temporada: {act.season}</li>
+                  </ul>
+                </div>
+              );
+            })
+          ) : (
+            <span>No hay actividades creadas para este pais.</span>
+          )}
         </div>
       </div>
+      <button onClick={handleGoBack}>Volver</button>
     </div>
   );
 };

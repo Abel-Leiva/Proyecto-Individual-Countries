@@ -42,36 +42,43 @@ function rootReducer(state = initialState, action) {
 
     //
     case FILTERS:
-      let { paisesFiltrados, activity, alfab, population, name, continent } =
+      let { paisesFiltrados, activity, alfab, population, continent } =
         action.payload;
       if (continent && continent !== "") {
         paisesFiltrados = paisesFiltrados.filter(
-          (pais) => pais.continent == continent
+          (pais) => pais.continent === continent
         );
       }
-      console.log(
-        "en el reduce buscnaod ac",
-        paisesFiltrados.filter((e) => e.Activities)
-      );
 
       if (activity && activity !== "") {
         let filtrados = [];
         paisesFiltrados.forEach((country) => {
           country.Activities.forEach((e) => {
-            if (e.name == activity) {
+            if (e.name === activity) {
               filtrados.push(country);
             }
           });
         });
         paisesFiltrados = filtrados;
       }
+      ///acaquede, creo que funciona
       if (population && population !== "") {
-        console.log("populationnn", population);
         paisesFiltrados =
-          population == "asc"
+          population === "asc"
             ? paisesFiltrados.sort((a, b) => a.population - b.population)
             : paisesFiltrados.sort((a, b) => b.population - a.population);
       }
+      ////
+      if (alfab && alfab !== "") {
+        alfab === "asc"
+          ? (paisesFiltrados = paisesFiltrados.sort((a, b) =>
+              a.name.localeCompare(b.name)
+            ))
+          : (paisesFiltrados = paisesFiltrados.sort((a, b) =>
+              b.name.localeCompare(a.name)
+            ));
+      }
+
       return { ...state, countries: paisesFiltrados };
 
     case FILTER_ACTIVITIES:
@@ -88,7 +95,7 @@ function rootReducer(state = initialState, action) {
       if (action.payload !== "") {
         afiltrar.forEach((country) => {
           country.Activities.forEach((e) => {
-            if (e.name == action.payload) {
+            if (e.name === action.payload) {
               filtrados.push(country);
             }
           });
@@ -107,7 +114,7 @@ function rootReducer(state = initialState, action) {
         : (state.filterCountries = state.countries);
       const paisesAMostrar2 = (action.payload = ""
         ? state.filterCountries
-        : state.copyAllcountries.filter((e) => e.continent == action.payload));
+        : state.copyAllcountries.filter((e) => e.continent === action.payload));
 
       return {
         ...state,

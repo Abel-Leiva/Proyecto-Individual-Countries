@@ -39,4 +39,7 @@
   align-items: flex-end;
   font-size: 19px;
   padding-left: 3px;
+
+  color: white;
+  font-weight: 600;
 }

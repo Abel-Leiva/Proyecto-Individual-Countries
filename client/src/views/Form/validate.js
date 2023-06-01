@@ -14,8 +14,6 @@ const validate = (form) => {
   }
   if (form.countries.length === 0) {
     objError.paises = "Debe seleccionar al menos un país";
-  } else {
-    objError.paises = "";
   }
 
   return objError;

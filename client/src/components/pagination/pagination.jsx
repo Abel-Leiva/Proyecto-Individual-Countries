@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import flechaIzquierda from "./flecha-izquierda.svg";
 import flechaDerecha from "./flecha-derecha.svg";
 import style from "./Pagination.module.css";
+import { useSelector } from "react-redux";
 export const Pagination = ({ pagina, setPagina, maximo }) => {
   const [input, setInput] = useState(1);
-
+  const countries = useSelector((state) => state.countries);
   const nextPage = () => {
     setInput(parseInt(input) + 1);
     setPagina(parseInt(pagina) + 1);

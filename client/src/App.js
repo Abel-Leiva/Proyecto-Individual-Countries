@@ -3,11 +3,9 @@ import "./App.css";
 import { Form, Landing, Home, Detail } from "./views/index";
 import NavBar from "./components/navBar/NavBar";
 import { Route } from "react-router-dom";
-import Filters from "./components/filters/Filters";
 
 function App() {
   const location = useLocation().pathname;
-  const isDetailPage = location.includes("/detail/");
 
   return (
     <div className="App">
@@ -16,6 +14,7 @@ function App() {
         <Filters />
       )} */}
       <Route exact path="/" render={() => <Landing />} />
+
       <Route exact path="/home" render={() => <Home />} />
       <Route exact path="/detail/:id" render={() => <Detail />} />
       <Route exact path="/create" render={() => <Form />} />

@@ -1,10 +1,3 @@
-import {
-  filterActivities,
-  filtered,
-  filteredContinent,
-  getAllCountries,
-} from "../../redux/actions";
-
 import { useDispatch, useSelector } from "react-redux";
 import style from "./Filters.module.css";
 import { filterCountries } from "../../redux/actions";
@@ -59,6 +52,7 @@ const Filters = () => {
 
   return (
     <div className={style.containerFilters}>
+      <span>Filtrar</span>
       <select name="" onChange={handleContinentChange} id="">
         <option value="" selected="true">
           Por continente
@@ -80,6 +74,7 @@ const Filters = () => {
           </option>
         ))}
       </select>
+      <span>Ordenar</span>
       <select name="" id="" value={filtros.alfab} onChange={handleAlfab}>
         <option value="">Orden alfabetico</option>
         <option value="asc">a-z</option>

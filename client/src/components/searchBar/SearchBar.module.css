@@ -9,30 +9,10 @@
   flex-direction: row;
 }
 
-.button {
-  text-decoration: none;
-  height: 32px;
-  width: 55px;
-  border-radius: 0px 5px 5px 0px;
-  border-style: none;
-  align-self: stretch;
-  background-color: #cac5c5;
-}
-.button:hover {
-  background-color: #a8a8ad;
-  cursor: pointer;
-}
-
-.button:active {
-  height: 32.2px;
-  background-color: #b1e6e6; /* color de fondo cuando el botón está presionado */
-  box-shadow: 0 0 1px 2px #cdcccc; /* sombra del botón presionado */
-  transform: translateY(0px); /* efecto de movimiento hacia abajo */
-}
 .input {
   padding-left: 10px;
   font-size: 18px;
-  border-radius: 5px 0px 0px 5px;
+  border-radius: 5px;
   height: 30px;
   width: 250px;
   border: 0;
@@ -41,8 +21,4 @@
 }
 .input:focus {
   outline: none;
-}
-
-.img {
-  width: 25px;
 }

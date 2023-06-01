@@ -25,8 +25,6 @@ const Form = () => {
 
   const resultado = obtenerValoresDePropiedad(nameFilters, nameIdCountries);
 
-  console.log(resultado); // Output: ["arg", "nig"]
-
   ///
   //referencia al input de paises
   const inputRef = useRef(null);
@@ -98,31 +96,34 @@ const Form = () => {
   /////////
   const submitHandler = async (e) => {
     e.preventDefault();
+    if (Object.keys(errors).length === 0) {
+      await axios
+        .post("http://localhost:3002/activities", form)
+        .then((response) => {
+          // Aquí obtienes la respuesta exitosa de la solicitud POST
 
-    await axios
-      .post("http://localhost:3002/activities", form)
-      .then((response) => {
-        // Aquí obtienes la respuesta exitosa de la solicitud POST
-        console.log(response.data); // Puedes mostrar la confirmación en la consola
-        alert("Actividad creada con éxito");
-        // Puedes realizar otras acciones aquí, como actualizar el estado de tu aplicación
-      })
-      .catch((error) => {
-        // Aquí manejas los errores de la solicitud POST
-        console.error(error);
-        alert("Ha ocurrido un error. Inténtelo nuevamente");
-        // Puedes mostrar un mensaje de error u otras acciones de manejo de errores
+          alert("Actividad creada con éxito");
+          // Puedes realizar otras acciones aquí, como actualizar el estado de tu aplicación
+        })
+        .catch((error) => {
+          // Aquí manejas los errores de la solicitud POST
+          console.error(error);
+          alert("Ha ocurrido un error. Inténtelo nuevamente");
+          // Puedes mostrar un mensaje de error u otras acciones de manejo de errores
+        });
+      setForm({
+        name: "",
+        difficulty: "",
+        duration: "",
+        season: "",
+        countries: resultado,
       });
-    setForm({
-      name: "",
-      difficulty: "",
-      duration: "",
-      season: "",
-      countries: resultado,
-    });
-    setNameFilters([]);
+      setNameFilters([]);
+    } else {
+      alert("Faltan campos por completar");
+    }
   };
-  console.log(form);
+  console.log("los errores", errors);
   ///////
   return (
     <div className={style.container}>
