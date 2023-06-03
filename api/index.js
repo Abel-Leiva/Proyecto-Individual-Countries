@@ -21,7 +21,7 @@ const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 const {
   loadCountriesToDatabase,
-} = require("./src/controllers/loadCountriesToDatabase.js");
+} = require("./src/utils/loadCountriesToDatabase.js");
 loadCountriesToDatabase();
 console.log(loadCountriesToDatabase());
 // Syncing all the models at once.

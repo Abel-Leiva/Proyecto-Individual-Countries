@@ -16,27 +16,35 @@ const CardsContainer = () => {
 
   return (
     <div className={style.container}>
-      <Pagination pagina={pagina} setPagina={setPagina} maximo={maximo} />
-      <div>
-        <div className={style.containerCards}>
-          {countries
-            .slice(
-              (pagina - 1) * porPagina,
-              (pagina - 1) * porPagina + porPagina
-            )
-            .map((c, i) => {
-              return (
-                <Card
-                  key={i}
-                  imageFlag={c.imageFlag}
-                  name={c.name}
-                  continent={c.continent}
-                  id={c.id}
-                />
-              );
-            })}
+      {countries.length ? (
+        <>
+          <Pagination pagina={pagina} setPagina={setPagina} maximo={maximo} />
+          <div>
+            <div className={style.containerCards}>
+              {countries
+                .slice(
+                  (pagina - 1) * porPagina,
+                  (pagina - 1) * porPagina + porPagina
+                )
+                .map((c, i) => {
+                  return (
+                    <Card
+                      key={i}
+                      imageFlag={c.imageFlag}
+                      name={c.name}
+                      continent={c.continent}
+                      id={c.id}
+                    />
+                  );
+                })}
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className={style.mensaje}>
+          No se encontraron paises que coincidan con esos filtros.
         </div>
-      </div>
+      )}
     </div>
   );
 };

@@ -26,7 +26,9 @@ const loadCountriesToDatabase = async () => {
     // Esperamos a que se completen todas las promesas
     const createdCountries = await Promise.all(promises);
   } catch (error) {
-    console.log({ loadCountriesError: error.message });
+    throw new Error(
+      `Error al cargar los países a la base de datos: ${error.message}`
+    );
   }
 };
 

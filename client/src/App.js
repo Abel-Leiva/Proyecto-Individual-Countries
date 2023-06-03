@@ -10,9 +10,7 @@ function App() {
   return (
     <div className="App">
       {location !== "/" && <NavBar />}
-      {/* {!isDetailPage && location !== "/" && location !== "/create" && (
-        <Filters />
-      )} */}
+
       <Route exact path="/" render={() => <Landing />} />
 
       <Route exact path="/home" render={() => <Home />} />

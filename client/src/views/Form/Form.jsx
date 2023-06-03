@@ -100,16 +100,11 @@ const Form = () => {
       await axios
         .post("http://localhost:3002/activities", form)
         .then((response) => {
-          // Aquí obtienes la respuesta exitosa de la solicitud POST
-
           alert("Actividad creada con éxito");
-          // Puedes realizar otras acciones aquí, como actualizar el estado de tu aplicación
         })
         .catch((error) => {
-          // Aquí manejas los errores de la solicitud POST
           console.error(error);
           alert("Ha ocurrido un error. Inténtelo nuevamente");
-          // Puedes mostrar un mensaje de error u otras acciones de manejo de errores
         });
       setForm({
         name: "",

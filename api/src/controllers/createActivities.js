@@ -14,7 +14,8 @@ const createActivity = async (req, res) => {
       res.status(201).json(newActivity);
     }
   } catch (error) {
-    console.log({ createActivityError: error.message });
+    console.Error({ createActivityError: error.message });
+    return res.status(500).json({ error: "Internal server error" });
   }
 };
 
