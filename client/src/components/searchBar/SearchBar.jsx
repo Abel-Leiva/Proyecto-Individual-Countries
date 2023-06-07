@@ -1,9 +1,11 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import style from "./SearchBar.module.css";
 import { nombreAbuscar } from "../../redux/actions";
 import { useEffect, useState } from "react";
+
 const SearchBar = () => {
+  const name = useSelector((state) => state.name);
   const [searchName, setSearchName] = useState("");
   const dispatch = useDispatch();
 
@@ -24,6 +26,7 @@ const SearchBar = () => {
         placeholder="Buscar por nombre"
         className={style.input}
         type="text"
+        value={name}
       />
     </div>
   );

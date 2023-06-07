@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-image: url("https://img.freepik.com/vector-premium/fondo-diversos-elementos-viaje-mensaje_23-2147598696.jpg?w=2000");
+  background-image: url("https://img.freepik.com/vector-gratis/fondo-viaje-realista-elementos_52683-77784.jpg?w=740&t=st=1686074937~exp=1686075537~hmac=5f6f5accaa4bc53af9fa1ba413c79c75540e2b70842c72fe7014da21c649d60b");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
@@ -61,6 +61,7 @@
   border-left: 2px solid #ffff01;
   color: white;
   text-transform: capitalize;
+  overflow-y: auto;
 }
 .text {
   text-align: center;
@@ -68,6 +69,13 @@
   width: 300px;
   height: 550px;
   color: white;
+}
+.failure {
+  font-size: 30px;
+  text-align: center;
+  background-color: rgb(58, 58, 179);
+  min-height: 100vh;
+  padding-top: 30px;
 }
 @media screen and (max-width: 700px) {
   .detailContainer {

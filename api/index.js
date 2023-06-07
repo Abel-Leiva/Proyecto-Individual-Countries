@@ -17,16 +17,18 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+require("dotenv").config();
+const { PORT } = process.env;
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 const {
   loadCountriesToDatabase,
 } = require("./src/utils/loadCountriesToDatabase.js");
 loadCountriesToDatabase();
-console.log(loadCountriesToDatabase());
+
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
-  server.listen(3002, () => {
-    console.log("%s listening at 3002"); // eslint-disable-line no-console
+  server.listen(PORT, () => {
+    console.log("%s listening at " + PORT); // eslint-disable-line no-console
   });
 });

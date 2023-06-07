@@ -1,4 +1,4 @@
-const { Country, Activity } = require("../db");
+const { Country, Activity, Sequelize } = require("../db");
 const { Op } = require("sequelize");
 const getAllCountries = async (req, res) => {
   const { id } = req.params;
@@ -45,65 +45,8 @@ const getAllCountries = async (req, res) => {
 
     res.status(200).json(countries);
   } catch (error) {
-    next(error);
+    console.error(error);
   }
 };
 
 module.exports = { getAllCountries };
-
-// const { Country, Activity } = require("../db");
-
-// const getAllCountries = async (req, res) => {
-//   const { id } = req.params;
-//   const { name } = req.query;
-//   try {
-//     let countries;
-
-//     // Si se proporciona un ID en los parámetros, filtrar por ID
-//     if (id) {
-//       countries = await Country.findByPk({
-//         include: {
-//           model: Activity,
-//           attributes: ["name"],
-//           through: { attributes: [] }, // para evitar incluir la tabla pivot
-//         },
-//       });
-//     }
-//     // Si se proporciona un nombre en la consulta, filtrar por nombre
-//     if (name) {
-//       countries = await Country.findAll({
-//         include: {
-//           model: Activity,
-//           attributes: ["name"],
-//           through: { attributes: [] }, // para evitar incluir la tabla pivot
-//         },
-//       });
-//     }
-//     // Si no se proporcionan parámetros de filtro, obtener todos los países
-//     if (!name && !id) {
-//       countries = await Country.findAll({
-//         include: {
-//           model: Activity,
-//           attributes: ["name"],
-//           through: { attributes: [] }, // para evitar incluir la tabla pivot
-//         },
-//       });
-//     }
-
-//     res.status(200).json(countries);
-//   } catch (error) {
-//     console.log({ getallCountrie: error });
-//   }
-// };
-
-// module.exports = { getAllCountries };
-// const { Country } = require("../db");
-// const getAllCountries = async (req, res) => {
-//   try {
-//     const response = await Country.findAll();
-//     res.status(200).json(response);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// module.exports = { getAllCountries };

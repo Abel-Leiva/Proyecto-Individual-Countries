@@ -2,3 +2,10 @@ body {
   margin: 0;
   text-rendering: optimizeLegibility;
 }
+:root {
+  --colorBlack: #000000dc;
+  --corlorBkWhite: #edf2f5;
+
+  --colorBlue: #447cad;
+  --colorBkgInput: #e0ebf1;
+}

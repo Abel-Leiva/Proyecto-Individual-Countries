@@ -1,9 +1,13 @@
 import {
   FILTERS,
+  FILTERS_FAILURE,
   GET_ACTIVITIES,
   GET_ALL_COUNTRIES,
+  GET_COUNTRIES_FAILURE,
   GET_ID_COUNTRY,
+  GET_ID_COUNTRY_FAILURE,
   SEARCH_NAME,
+  CLEAR_FILTERS,
 } from "../actions";
 
 let initialState = {
@@ -13,18 +17,35 @@ let initialState = {
   activities: [],
   detail: {},
   name: "",
+  activity: "",
+  alfab: "",
+  population: "",
+  continent: "",
+  failure: null,
 };
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
+    // case GET_ALL_COUNTRIES:
+    //   return {
+    //     ...state,
+    //     countries: action.payload,
+    //     copyAllcountries: action.payload,
+    //     failure: null,
+    //   };
     case GET_ALL_COUNTRIES:
+      const randomizedCountries = action.payload
+        .slice()
+        .sort(() => Math.random() - 0.5);
       return {
         ...state,
-        countries: action.payload,
-        copyAllcountries: action.payload,
+        countries: randomizedCountries,
+        copyAllcountries: randomizedCountries,
+        failure: null,
       };
+    //
     case GET_ID_COUNTRY:
-      return { ...state, detail: action.payload };
+      return { ...state, detail: action.payload, failure: null };
     //
     case SEARCH_NAME:
       return {
@@ -40,6 +61,7 @@ function rootReducer(state = initialState, action) {
     case FILTERS:
       let { paisesFiltrados, activity, alfab, population, continent } =
         action.payload;
+
       if (continent && continent !== "") {
         paisesFiltrados = paisesFiltrados.filter(
           (pais) => pais.continent === continent
@@ -47,17 +69,17 @@ function rootReducer(state = initialState, action) {
       }
 
       if (activity && activity !== "") {
-        let filtrados = [];
+        let arrayFilters = [];
         paisesFiltrados.forEach((country) => {
           country.Activities.forEach((e) => {
             if (e.name === activity) {
-              filtrados.push(country);
+              arrayFilters.push(country);
             }
           });
         });
-        paisesFiltrados = filtrados;
+        paisesFiltrados = arrayFilters;
       }
-      ///acaquede, creo que funciona
+      ///
       if (population && population !== "") {
         paisesFiltrados =
           population === "asc"
@@ -75,7 +97,30 @@ function rootReducer(state = initialState, action) {
             ));
       }
 
-      return { ...state, countries: paisesFiltrados };
+      return {
+        ...state,
+        countries: paisesFiltrados,
+        failure: null,
+        activity: activity,
+        population: population,
+        alfab: alfab,
+        continent: continent,
+      };
+    case GET_COUNTRIES_FAILURE:
+      return { ...state, failure: action.payload };
+    case GET_ID_COUNTRY_FAILURE:
+      return { ...state, failure: action.payload };
+    case FILTERS_FAILURE:
+      return { ...state, failure: action.payload };
+    case CLEAR_FILTERS:
+      return {
+        ...state,
+        name: "",
+        activity: "",
+        population: "",
+        alfab: "",
+        continent: "",
+      };
 
     default:
       return state;

@@ -1,9 +1,7 @@
 .container {
   display: flex;
   flex-direction: row;
-  /* background-image: url("https://t3.ftcdn.net/jpg/04/38/86/60/360_F_438866079_iqlKVtfolyzJlKHoT0UW7TQxnxv6uOVT.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 1400px; */
-  background-color: #13265ec5;
+
+  background-color: var(--corlorBkWhite);
   min-height: 100vh;
 }

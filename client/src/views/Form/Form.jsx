@@ -15,7 +15,7 @@ const Form = () => {
     return { [c.name]: c.id };
   });
   /////
-  //funcion que optiene el id mapeando el arreglo de nombres de paises
+  //funcion que obtiene el id mapeando el arreglo de nombres de paises
   function obtenerValoresDePropiedad(paises, datos) {
     return paises.map((pais) => {
       const elemento = datos.find((dato) => dato.hasOwnProperty(pais));
@@ -98,7 +98,7 @@ const Form = () => {
     e.preventDefault();
     if (Object.keys(errors).length === 0) {
       await axios
-        .post("http://localhost:3002/activities", form)
+        .post("http://localhost:3001/activities", form)
         .then((response) => {
           alert("Actividad creada con éxito");
         })
@@ -118,7 +118,7 @@ const Form = () => {
       alert("Faltan campos por completar");
     }
   };
-  console.log("los errores", errors);
+
   ///////
   return (
     <div className={style.container}>

@@ -40,7 +40,7 @@
 
 .campo input,
 .campo select {
-  background-color: #f0f0f0;
+  background-color: var(--colorBkgInput);
   font-size: 14px;
   color: #333;
   border-radius: 5px;
@@ -59,7 +59,7 @@
 }
 .campo button {
   margin-top: 7px;
-  background-color: #235d90;
+  background-color: var(--colorBlue);
   font-size: 14px;
   color: white;
   border: none;
@@ -71,13 +71,13 @@
 }
 
 .campo button:hover {
-  background-color: #3377be;
+  background-color: #699cd3;
 }
 
 .campo div label {
   font-size: 18px;
   font-weight: bold;
-  color: #3377be;
+  color: var(--colorBlue);
   margin-bottom: 5px;
 }
 

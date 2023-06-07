@@ -6,14 +6,12 @@ export const GET_ID_COUNTRY_FAILURE = "GET_ID_COUNTRY_FAILURE";
 export const FILTERS = "FILTERS";
 export const FILTERS_FAILURE = "FILTERS_FAILURE";
 export const GET_ACTIVITIES = "GET_ACTIVITIES";
-
+export const CLEAR_FILTERS = "CLEAR_FILTERS";
 export const SEARCH_NAME = "SEACH_NAME";
 export function getAllCountries() {
   return async function (dispatch) {
     try {
-      const response = await axios
-        .get("http://localhost:3002/countries")
-        .then((data) => data.data);
+      const response = await axios.get("/countries").then((data) => data.data);
 
       return dispatch({
         type: GET_ALL_COUNTRIES,
@@ -31,7 +29,7 @@ export function getIdCountry(id) {
   return async function (dispatch) {
     try {
       const response = await axios
-        .get(`http://localhost:3002/countries/${id}`)
+        .get(`countries/${id}`)
         .then((data) => data.data);
 
       return dispatch({
@@ -53,7 +51,7 @@ export function filterCountries(filtros) {
   return async function (dispatch) {
     try {
       const response = await axios
-        .get(`http://localhost:3002/countries/?name=${filtros.name}`)
+        .get(`/countries/?name=${filtros.name}`)
         .then((data) => data.data);
       return dispatch({
         type: FILTERS,
@@ -70,9 +68,7 @@ export function filterCountries(filtros) {
 export function getActivities() {
   return async function (dispatch) {
     try {
-      const response = await axios
-        .get(`http://localhost:3002/activities`)
-        .then((data) => data.data);
+      const response = await axios.get(`/activities`).then((data) => data.data);
       return dispatch({
         type: GET_ACTIVITIES,
         payload: response,
@@ -81,4 +77,7 @@ export function getActivities() {
       console.error(error);
     }
   };
+}
+export function clearFilters() {
+  return { type: CLEAR_FILTERS };
 }

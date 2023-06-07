@@ -25,7 +25,7 @@
   display: flex;
   text-align: center;
   color: white;
-  background-color: black;
+  background-color: var(--colorBlack);
   outline: none;
   border: none;
 
@@ -40,6 +40,6 @@
   font-size: 19px;
   padding-left: 3px;
 
-  color: white;
+  color: rgb(23, 25, 32);
   font-weight: 600;
 }
